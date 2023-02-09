@@ -38,11 +38,17 @@ $title = "All Access";
                 <div class="row d-flex justify-content-center align-items-center none">
                     <div class="col-12">
 
-                        <h1 class="text-white mb-4">Hello User</h1>
+                        <h1 class="text-white mb-4 form-anime">Hello User</h1>
 
-                        <div class="card" style="border-radius: 15px;">
-                            <div class="card-body" style="height: 820px !important;">
+                        <div class="card form-anime" style="border-radius: 15px;">
+                            <div class="card-body" style="height: 760px !important;">
                                 <div class="scroll">
+
+                                <div class="sticky">
+                                    <h1 class="d-flex justify-content-center text-dark mb-4">Welcome</h1>
+
+                                    <hr class="mx-n3">
+                                    </div>
 
                                     <div class="row align-items-center pt-4 pb-3">
                                         <div class="col-md-3 ps-5">
@@ -94,10 +100,34 @@ $title = "All Access";
                                             <label for="" class="form-label ps-4">
                                                 <h4>Languages Known</h4>
                                             </label>
-                                            <div class="row align-items-center pt-4 pb-3">
+                                            <div class="row align-items-center">
                                                 <div class="col-md-3 ps-5">
 
-                                                    <h6 class="mb-0">Language</h6>
+                                                    <h6 class="mb-0">English</h6>
+
+                                                </div>
+                                                <div class="col-md-9 pe-5">
+
+                                                    <input type="checkbox" class="form-check-input" />
+                                                </div>
+                                            </div>
+
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3 ps-5">
+
+                                                    <h6 class="mb-0">Hindi</h6>
+
+                                                </div>
+                                                <div class="col-md-9 pe-5">
+
+                                                    <input type="checkbox" class="form-check-input" />
+                                                </div>
+                                            </div>
+
+                                            <div class="row align-items-center">
+                                                <div class="col-md-3 ps-5">
+
+                                                    <h6 class="mb-0">Gujarati</h6>
 
                                                 </div>
                                                 <div class="col-md-9 pe-5">
@@ -107,11 +137,63 @@ $title = "All Access";
                                             </div>
 
                                         </div>
+                                        <div class="col-6">
+                                            <label for="" class="form-label ps-4">
+                                                <h4>Gender Known</h4>
+                                            </label>
+                                            <div class="form-check">
+                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault1">
+                                                    Male
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault2">
+                                                    Female
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <hr class="mx-n3">
 
                                     <div class="row align-items-center py-3">
+                                        <div class="col-md-3 ps-5">
+
+                                            <h6 class="mb-0">Date Of Birth</h6>
+
+                                        </div>
+                                        <div class="col-md-9 pe-5">
+
+                                            <input type="date" name="dob" id="dob" placeholder="Date Of Birth" class="form-control">
+
+                                        </div>
+                                    </div>
+
+                                    <hr class="mx-n3">
+
+                                    <div class="row align-items-center py-3">
+                                        <div class="col-md-3 ps-5">
+
+                                            <h6 class="mb-0">Address</h6>
+
+                                        </div>
+                                        <div class="col-md-9 pe-5">
+
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Select Your</option>
+                                                <option value="Daman">Daman</option>
+                                                <option value="Vapi">Vapi</option>
+                                                <option value="Bhilad">Bhilad</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <hr class="mx-n3">
+
+                                    <!-- <div class="row align-items-center py-3">
                                         <div class="col-md-3 ps-5">
 
                                             <h6 class="mb-0">Full name</h6>
@@ -124,7 +206,7 @@ $title = "All Access";
                                         </div>
                                     </div>
 
-                                    <hr class="mx-n3">
+                                    <hr class="mx-n3"> -->
 
                                     <div class="row align-items-center py-3">
                                         <div class="col-md-3 ps-5">
@@ -157,10 +239,23 @@ $title = "All Access";
         </div>
     </div>
     <style>
-        .scroll{
-            max-height  : 620px;
+        .scroll {
+            max-height: 620px;
             overflow-y: scroll;
+            overflow-x: hidden !important;
         }
+
+        .sticky {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            background-color: white;
+            padding: 10px;
+            z-index: 1;
+        }
+        .form-anime{
+            animation-name: InfoUser;
+        } 
     </style>
 </body>
 

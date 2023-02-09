@@ -310,10 +310,10 @@ div.title-menu {
   padding: 8px 15px 0px 0px;
   font-size: 20px;
 }
-.Active-menu {
-  /* background: linear-gradient(92deg, rgb(89, 95, 247) -229%, transparent 94%);
-  border-left: 4px solid rgb(89, 95, 247); */
-}
+/* .Active-menu {
+  background: linear-gradient(92deg, rgb(89, 95, 247) -229%, transparent 94%);
+  border-left: 4px solid rgb(89, 95, 247);
+} */
 svg.icon-search {
   width: 19px;
   height: 19px;
