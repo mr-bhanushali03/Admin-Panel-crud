@@ -1,5 +1,5 @@
 <?php
-$title = "Admin Panel";
+$title = "All Access";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,114 +22,192 @@ $title = "Admin Panel";
         <div class="Box-menu">
             <ul class="ul-menu">
                 <li class="li-mneu Active-menu">
-                    <i class="fa fa-brands fa-redhat"></i>
-                    <div class="title-menu"><a href="index.php">Dashboard</a></div>
-                </li>
-                <li class="li-mneu">
-                    <i class="fa fa-sharp fa-solid fa-graduation-cap"></i>
-                    <div class="title-menu">Student</div>
-                </li>
-                <li class="li-mneu">
-                    <i class="fa fa-solid fa-person-chalkboard"></i>
-                    <div class="title-menu">Teacher</div>
-                </li>
-                <li class="li-mneu">
-                    <i class="fa fa-solid fa-school"></i>
-                    <div class="title-menu">School</div>
-                </li>
-                <!-- <li class="li-mneu">
-                    <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
-                        <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-custom-link" />
-                        <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-general-link" />
-                        <style xmlns="" lang="en" type="text/css" id="dark-mode-custom-style" />
-                        <style xmlns="" lang="en" type="text/css" id="dark-mode-native-style" />
-                        <style xmlns="" lang="en" type="text/css" id="dark-mode-native-sheet" />
-                        <path d="M12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
-                        <path d="M21.294,13.9l-.444-.256a9.1,9.1,0,0,0,0-3.29l.444-.256a3,3,0,1,0-3-5.2l-.445.257A8.977,8.977,0,0,0,15,3.513V3A3,3,0,0,0,9,3v.513A8.977,8.977,0,0,0,6.152,5.159L5.705,4.9a3,3,0,0,0-3,5.2l.444.256a9.1,9.1,0,0,0,0,3.29l-.444.256a3,3,0,1,0,3,5.2l.445-.257A8.977,8.977,0,0,0,9,20.487V21a3,3,0,0,0,6,0v-.513a8.977,8.977,0,0,0,2.848-1.646l.447.258a3,3,0,0,0,3-5.2Zm-2.548-3.776a7.048,7.048,0,0,1,0,3.75,1,1,0,0,0,.464,1.133l1.084.626a1,1,0,0,1-1,1.733l-1.086-.628a1,1,0,0,0-1.215.165,6.984,6.984,0,0,1-3.243,1.875,1,1,0,0,0-.751.969V21a1,1,0,0,1-2,0V19.748a1,1,0,0,0-.751-.969A6.984,6.984,0,0,1,7.006,16.9a1,1,0,0,0-1.215-.165l-1.084.627a1,1,0,1,1-1-1.732l1.084-.626a1,1,0,0,0,.464-1.133,7.048,7.048,0,0,1,0-3.75A1,1,0,0,0,4.79,8.992L3.706,8.366a1,1,0,0,1,1-1.733l1.086.628A1,1,0,0,0,7.006,7.1a6.984,6.984,0,0,1,3.243-1.875A1,1,0,0,0,11,4.252V3a1,1,0,0,1,2,0V4.252a1,1,0,0,0,.751.969A6.984,6.984,0,0,1,16.994,7.1a1,1,0,0,0,1.215.165l1.084-.627a1,1,0,1,1,1,1.732l-1.084.626A1,1,0,0,0,18.746,10.125Z" />
-                    </svg>
-                    <div class="title-menu">Setting</div>
-                </li> -->
-                <li class="li-mneu logout">
                     <i class="fa fa-solid fa-arrow-right-from-bracket"></i>
-                    <div class="title-menu">Logout</div>
+                    <div class="title-menu"><a href="index.php">Log In</a></div>
+                </li>
+                <li class="li-mneu">
+                    <i class="fa fa-solid fa-user-plus"></i>
+                    <div class="title-menu"><a href="signup.php">Sign UP</a></div>
                 </li>
             </ul>
         </div>
     </div>
     <div class="Page">
         <div class="Box-header">
-            <div class="Box-search">
-                <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-custom-link" />
-                    <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-general-link" />
-                    <style xmlns="" lang="en" type="text/css" id="dark-mode-custom-style" />
-                    <style xmlns="" lang="en" type="text/css" id="dark-mode-native-style" />
-                    <style xmlns="" lang="en" type="text/css" id="dark-mode-native-sheet" />
-                    <g fill="none" fill-rule="evenodd">
-                        <path d="m0 0h32v32h-32z" />
-                        <path d="m15 0c8.2842712 0 15 6.71572875 15 15 0 3.7823596-1.3999424 7.2377452-3.7099407 9.8762702l5.3667949 5.3663705-1.4142135 1.4142135-5.3663705-5.3667949c-2.638525 2.3099983-6.0939106 3.7099407-9.8762702 3.7099407-8.28427125 0-15-6.7157288-15-15 0-8.28427125 6.71572875-15 15-15zm0 2c-7.17970175 0-13 5.82029825-13 13 0 7.1797017 5.82029825 13 13 13 7.1797017 0 13-5.8202983 13-13 0-7.17970175-5.8202983-13-13-13z" fill="white" fill-rule="nonzero" />
-                    </g>
-                </svg>
-                <input class="input-search" placeholder="Search" type="text">
-            </div>
-            <div class="box-alert-infomation">
-                <div class="box-alert">
-                    // Something is Missing....
-                </div>
-                <div class="box-infomation">
-                    <img class="info-avatar" src="https://www.shutterstock.com/image-vector/user-icon-vector-260nw-393536320.jpg">
-                    <div class="info-name">Admin</div>
-                </div>
-            </div>
-        </div>
-        <div class="Box-elements">
-            <div class="box-element-flex">
-                <div class="box-travel">
-                    <div class="title-element">Goals Budget</div>
-                    <div class="box-chart-travel">
-                        <table class="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry the Bird</td>
-                                    <td>Thornton</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
+            <div class="wrap">
+                <div class="box">
+                    <div class="content">
+                        <form>
+                            <div class="logo-wrap">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                            <h1>Welcome Back!</h1>
+                            <div class="input-box">
+                                <input type="text" required autocomplete="off">
+                                <i class="fa-solid fa-user"></i>
+                                <span>Username</span>
+                            </div>
+                            <div class="input-box">
+                                <input type="password" required autocomplete="off">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>Password</span>
+                            </div>
+                            <div class="links">
+                                <a href="#">Forgot Password?</a>
+                                <a href="signup.php">Sign Up</a>
+                            </div>
+                            <div class="input-box">
+                                <input type="submit" value="Login">
+                            </div>
+                        </form>
                     </div>
-                </div>
-            </div>
-            <div class="box-element-flex">
-                <div class="transction">
-
-                </div>
-                <div class="stocks ">
-
                 </div>
             </div>
         </div>
     </div>
+    <style>
+        .fa-key{
+            font-size: 60px;
+        }
+        .wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto auto;
+        }
+
+        .wrap .box {
+            position: relative;
+            width: 600px;
+            height: 880px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to top, #212225, #313337);
+            border-radius: 18px;
+            box-shadow: 0 9px 0 #111113, 0px 2.9px 3.3px rgba(0, 0, 0, 0.068),
+                0px 9.1px 9px rgba(0, 0, 0, 0.084), 0px 23px 21.7px rgba(0, 0, 0, 0.099),
+                0px 72px 72px rgba(0, 0, 0, 0.16);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content form {
+            position: relative;
+            width: calc(100% - 4em);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        .content form .logo-wrap {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            color: #313337;
+            font-size: 2em;
+            border-radius: 50%;
+            display: grid;
+            place-content: center;
+            padding-top: -300px;
+        }
+
+        .content form h1 {
+            line-height: 1;
+            font-size: 1.75em;
+            padding-top: 0.6em;
+        }
+
+        .content form .input-box {
+            position: relative;
+            width: 100%;
+            /* margin: 0.8em; */
+            padding-top: 50px;
+        }
+
+        .content form .input-box:last-child {
+            margin-bottom: 0;
+        }
+
+        .content form .input-box input {
+            position: relative;
+            width: 100%;
+            padding: 0.625em 0 0.625em 1.5em;
+            background: transparent;
+            font-size: 1em;
+            box-shadow: none;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid #fff;
+            color: #ffff;
+        }
+
+        .content form .input-box i {
+            position: absolute;
+            left: 0;
+            bottom: 14px;
+            font-size: 1em;
+        }
+
+        .content form .input-box span {
+            position: absolute;
+            left: 0;
+            padding: 0.625em 0 0.625em 1.5em;
+            pointer-events: none;
+            opacity: 0.5;
+            transition: 300ms;
+        }
+
+        .content form .input-box input:focus~span,
+        .content form .input-box input:valid~span {
+            transform: translateY(-20px);
+            font-size: 0.9em;
+            background: #fff;
+            color: #212225;
+            opacity: 1;
+            padding: 2px 4px;
+        }
+
+        .content form .links {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 200px;
+        }
+
+        .content form .links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .content form .links a:hover {
+            text-decoration: underline;
+        }
+
+        .content form .input-box input[type="submit"] {
+            background: #fff;
+            color: #111113;
+            border: 2px solid #fff;
+            font-weight: 600;
+            padding: 0.625em;
+            cursor: pointer;
+        }
+
+        .content form .input-box input[type="submit"]:hover {
+            background: transparent;
+            color: #fff;
+        }
+    </style>
 </body>
 
 </html>
