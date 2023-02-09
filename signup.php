@@ -139,7 +139,7 @@ $title = "All Access";
                                         </div>
                                         <div class="col-6">
                                             <label for="" class="form-label ps-4">
-                                                <h4>Gender Known</h4>
+                                                <h4>Gender</h4>
                                             </label>
                                             <div class="form-check">
                                                 <input class="form-check-input col-md-3 ms-3" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -151,6 +151,12 @@ $title = "All Access";
                                                 <input class="form-check-input col-md-3 ms-3" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                                                 <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault2">
                                                     Female
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault3">
+                                                    Other
                                                 </label>
                                             </div>
                                         </div>
@@ -176,13 +182,13 @@ $title = "All Access";
                                     <div class="row align-items-center py-3">
                                         <div class="col-md-3 ps-5">
 
-                                            <h6 class="mb-0">Address</h6>
+                                            <h6 class="mb-0">City</h6>
 
                                         </div>
                                         <div class="col-md-9 pe-5">
 
                                             <select class="form-select" aria-label="Default select example">
-                                                <option selected>Select Your</option>
+                                                <option selected>Select Your City</option>
                                                 <option value="Daman">Daman</option>
                                                 <option value="Vapi">Vapi</option>
                                                 <option value="Bhilad">Bhilad</option>

@@ -74,6 +74,7 @@ $title = "All Access";
             justify-content: center;
             align-items: center;
             margin: auto auto;
+            animation-name: reverse-Transction;
         }
 
         .wrap .box {
