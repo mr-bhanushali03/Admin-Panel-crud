@@ -1,5 +1,17 @@
 <?php
 $title = "All Access";
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    ?>
+    <script>
+        alert('<?php echo $name,$email,$password; ?>');
+    </script>
+    <?php
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,200 +54,185 @@ $title = "All Access";
 
                         <div class="card form-anime" style="border-radius: 15px;">
                             <div class="card-body" style="height: 760px !important;">
-                                <div class="scroll">
+                                <form action="" method="post">
+                                    <div class="scroll">
 
-                                <div class="sticky">
-                                    <h1 class="d-flex justify-content-center text-dark mb-4">Welcome</h1>
+                                        <div class="sticky">
+                                            <h1 class="d-flex justify-content-center text-dark mb-4">Welcome</h1>
 
-                                    <hr class="mx-n3">
-                                    </div>
-
-                                    <div class="row align-items-center pt-4 pb-3">
-                                        <div class="col-md-3 ps-5">
-
-                                            <h6 class="mb-0">Full name</h6>
-
+                                            <hr class="mx-n3">
                                         </div>
-                                        <div class="col-md-9 pe-5">
+                                        <div class="row align-items-center pt-4 pb-3">
+                                            <div class="col-md-3 ps-5">
 
-                                            <input type="text" class="form-control form-control-lg" />
+                                                <h6 class="mb-0">Full name</h6>
 
-                                        </div>
-                                    </div>
-
-                                    <hr class="mx-n3">
-
-                                    <div class="row align-items-center py-3">
-                                        <div class="col-md-3 ps-5">
-
-                                            <h6 class="mb-0">Email address</h6>
-
-                                        </div>
-                                        <div class="col-md-9 pe-5">
-
-                                            <input type="email" class="form-control form-control-lg" placeholder="example@example.com" />
-
-                                        </div>
-                                    </div>
-
-                                    <hr class="mx-n3">
-
-                                    <div class="row align-items-center pt-4 pb-3">
-                                        <div class="col-md-3 ps-5">
-
-                                            <h6 class="mb-0">Password</h6>
-
-                                        </div>
-                                        <div class="col-md-9 pe-5">
-
-                                            <input type="password" class="form-control form-control-lg" />
-
-                                        </div>
-                                    </div>
-
-                                    <hr class="mx-n3">
-
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <label for="" class="form-label ps-4">
-                                                <h4>Languages Known</h4>
-                                            </label>
-                                            <div class="row align-items-center">
-                                                <div class="col-md-3 ps-5">
-
-                                                    <h6 class="mb-0">English</h6>
-
-                                                </div>
-                                                <div class="col-md-9 pe-5">
-
-                                                    <input type="checkbox" class="form-check-input" />
-                                                </div>
                                             </div>
+                                            <div class="col-md-9 pe-5">
 
-                                            <div class="row align-items-center">
-                                                <div class="col-md-3 ps-5">
+                                                <input type="text" class="form-control form-control-lg" name="name"/>
 
-                                                    <h6 class="mb-0">Hindi</h6>
-
-                                                </div>
-                                                <div class="col-md-9 pe-5">
-
-                                                    <input type="checkbox" class="form-check-input" />
-                                                </div>
                                             </div>
-
-                                            <div class="row align-items-center">
-                                                <div class="col-md-3 ps-5">
-
-                                                    <h6 class="mb-0">Gujarati</h6>
-
-                                                </div>
-                                                <div class="col-md-9 pe-5">
-
-                                                    <input type="checkbox" class="form-check-input" />
-                                                </div>
-                                            </div>
-
                                         </div>
-                                        <div class="col-6">
-                                            <label for="" class="form-label ps-4">
-                                                <h4>Gender</h4>
-                                            </label>
-                                            <div class="form-check">
-                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault1">
-                                                    Male
+
+                                        <hr class="mx-n3">
+
+                                        <div class="row align-items-center py-3">
+                                            <div class="col-md-3 ps-5">
+
+                                                <h6 class="mb-0">Email address</h6>
+
+                                            </div>
+                                            <div class="col-md-9 pe-5">
+
+                                                <input type="email" class="form-control form-control-lg" placeholder="example@example.com" name="email"/>
+
+                                            </div>
+                                        </div>
+
+                                        <hr class="mx-n3">
+
+                                        <div class="row align-items-center pt-4 pb-3">
+                                            <div class="col-md-3 ps-5">
+
+                                                <h6 class="mb-0">Password</h6>
+
+                                            </div>
+                                            <div class="col-md-9 pe-5">
+
+                                                <input type="password" class="form-control form-control-lg" name="password"/>
+
+                                            </div>
+                                        </div>
+
+                                        <hr class="mx-n3">
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="" class="form-label ps-4">
+                                                    <h4>Languages Known</h4>
                                                 </label>
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-3 ps-5">
+
+                                                        <h6 class="mb-0">English</h6>
+
+                                                    </div>
+                                                    <div class="col-md-9 pe-5">
+
+                                                        <input type="checkbox" class="form-check-input" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-3 ps-5">
+
+                                                        <h6 class="mb-0">Hindi</h6>
+
+                                                    </div>
+                                                    <div class="col-md-9 pe-5">
+
+                                                        <input type="checkbox" class="form-check-input" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-3 ps-5">
+
+                                                        <h6 class="mb-0">Gujarati</h6>
+
+                                                    </div>
+                                                    <div class="col-md-9 pe-5">
+
+                                                        <input type="checkbox" class="form-check-input" />
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                                <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault2">
-                                                    Female
+                                            <div class="col-6">
+                                                <label for="" class="form-label ps-4">
+                                                    <h4>Gender</h4>
                                                 </label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Male" value="Male">
+                                                    <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault1">
+                                                        Male
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Female" value="Female">
+                                                    <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault2">
+                                                        Female
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Other" value="Other">
+                                                    <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault3">
+                                                        Other
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                                <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault3">
-                                                    Other
-                                                </label>
+                                        </div>
+
+                                        <hr class="mx-n3">
+
+                                        <div class="row align-items-center py-3">
+                                            <div class="col-md-3 ps-5">
+
+                                                <h6 class="mb-0">Date Of Birth</h6>
+
+                                            </div>
+                                            <div class="col-md-9 pe-5">
+
+                                                <input type="date" name="dob" id="dob" placeholder="Date Of Birth" class="form-control">
+
+                                            </div>
+                                        </div>
+
+                                        <hr class="mx-n3">
+
+                                        <div class="row align-items-center py-3">
+                                            <div class="col-md-3 ps-5">
+
+                                                <h6 class="mb-0">City</h6>
+
+                                            </div>
+                                            <div class="col-md-9 pe-5">
+
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option selected>Select Your City</option>
+                                                    <option value="Daman">Daman</option>
+                                                    <option value="Vapi">Vapi</option>
+                                                    <option value="Bhilad">Bhilad</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <hr class="mx-n3">
+
+                                        <div class="row align-items-center py-3">
+                                            <div class="col-md-3 ps-5">
+
+                                                <h6 class="mb-0">Upload CV</h6>
+
+                                            </div>
+                                            <div class="col-md-9 pe-5">
+
+                                                <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                                                <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
+                                                    size 50 MB</div>
+
                                             </div>
                                         </div>
                                     </div>
 
                                     <hr class="mx-n3">
 
-                                    <div class="row align-items-center py-3">
-                                        <div class="col-md-3 ps-5">
-
-                                            <h6 class="mb-0">Date Of Birth</h6>
-
-                                        </div>
-                                        <div class="col-md-9 pe-5">
-
-                                            <input type="date" name="dob" id="dob" placeholder="Date Of Birth" class="form-control">
-
-                                        </div>
+                                    <div class="px-5 py-4">
+                                        <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Submit">
                                     </div>
-
-                                    <hr class="mx-n3">
-
-                                    <div class="row align-items-center py-3">
-                                        <div class="col-md-3 ps-5">
-
-                                            <h6 class="mb-0">City</h6>
-
-                                        </div>
-                                        <div class="col-md-9 pe-5">
-
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected>Select Your City</option>
-                                                <option value="Daman">Daman</option>
-                                                <option value="Vapi">Vapi</option>
-                                                <option value="Bhilad">Bhilad</option>
-                                            </select>
-
-                                        </div>
-                                    </div>
-
-                                    <hr class="mx-n3">
-
-                                    <!-- <div class="row align-items-center py-3">
-                                        <div class="col-md-3 ps-5">
-
-                                            <h6 class="mb-0">Full name</h6>
-
-                                        </div>
-                                        <div class="col-md-9 pe-5">
-
-                                            <textarea class="form-control" rows="3" placeholder="Message sent to the employer"></textarea>
-
-                                        </div>
-                                    </div>
-
-                                    <hr class="mx-n3"> -->
-
-                                    <div class="row align-items-center py-3">
-                                        <div class="col-md-3 ps-5">
-
-                                            <h6 class="mb-0">Upload CV</h6>
-
-                                        </div>
-                                        <div class="col-md-9 pe-5">
-
-                                            <input class="form-control form-control-lg" id="formFileLg" type="file" />
-                                            <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
-                                                size 50 MB</div>
-
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <hr class="mx-n3">
-
-                                <div class="px-5 py-4">
-                                    <button type="submit" class="btn btn-primary btn-lg">Send application</button>
-                                </div>
-
+                                </form>
                             </div>
                         </div>
 
@@ -259,9 +256,10 @@ $title = "All Access";
             padding: 10px;
             z-index: 1;
         }
-        .form-anime{
+
+        .form-anime {
             animation-name: InfoUser;
-        } 
+        }
     </style>
 </body>
 
