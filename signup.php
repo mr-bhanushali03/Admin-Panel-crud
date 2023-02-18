@@ -1,18 +1,23 @@
 <?php
 $title = "All Access";
+require('connection.php');
 
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-    ?>
-    <script>
-        alert('<?php echo $name,$email,$password; ?>');
-    </script>
-    <?php
+    $languages = implode(',',$_POST['languages']);
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $city = $_POST['city'];
+    $file = $_FILES['file']['name'];
+    
+    $user = "INSERT INTO `user`(`name`, `email`, `password`, `language`, `gender`, `dob`, `city`, `file`) VALUES ('$name','$email','$password','$languages','$gender','$dob','$city','$file')";
+    $sql = mysqli_query($con,$user);
+    header("location : dashboard.php");
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +59,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="card form-anime" style="border-radius: 15px;">
                             <div class="card-body" style="height: 760px !important;">
-                                <form action="" method="post">
+                                <form action="" method="post" enctype="multipart/form-data">
                                     <div class="scroll">
 
                                         <div class="sticky">
@@ -120,7 +125,7 @@ if (isset($_POST['submit'])) {
                                                     </div>
                                                     <div class="col-md-9 pe-5">
 
-                                                        <input type="checkbox" class="form-check-input" />
+                                                        <input type="checkbox" class="form-check-input" name="languages[]" value="English"/>
                                                     </div>
                                                 </div>
 
@@ -132,7 +137,7 @@ if (isset($_POST['submit'])) {
                                                     </div>
                                                     <div class="col-md-9 pe-5">
 
-                                                        <input type="checkbox" class="form-check-input" />
+                                                        <input type="checkbox" class="form-check-input" name="languages[]" value="Hindi"/>
                                                     </div>
                                                 </div>
 
@@ -144,7 +149,7 @@ if (isset($_POST['submit'])) {
                                                     </div>
                                                     <div class="col-md-9 pe-5">
 
-                                                        <input type="checkbox" class="form-check-input" />
+                                                        <input type="checkbox" class="form-check-input" name="languages[]" value="Gujarati"/>
                                                     </div>
                                                 </div>
 
@@ -199,7 +204,7 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="col-md-9 pe-5">
 
-                                                <select class="form-select" aria-label="Default select example">
+                                                <select class="form-select" aria-label="Default select example" name="city">
                                                     <option selected>Select Your City</option>
                                                     <option value="Daman">Daman</option>
                                                     <option value="Vapi">Vapi</option>
@@ -219,7 +224,7 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="col-md-9 pe-5">
 
-                                                <input class="form-control form-control-lg" id="formFileLg" type="file" />
+                                                <input class="form-control form-control-lg" id="file" type="file" name="file"/>
                                                 <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
                                                     size 50 MB</div>
 
