@@ -20,7 +20,7 @@
             <ul class="ul-menu">
                 <li class="li-mneu Active-menu">
                     <i class="fa fa-brands fa-redhat"></i>
-                    <div class="title-menu"><a href="index.php">Dashboard</a></div>
+                    <div class="title-menu"><a href="dashboard.php">Dashboard</a></div>
                 </li>
                 <li class="li-mneu">
                     <i class="fa fa-sharp fa-solid fa-graduation-cap"></i>
