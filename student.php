@@ -1,56 +1,14 @@
 <?php
-$title = "All Access";
-require('connection.php');
-
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $languages = implode(',', $_POST['languages']);
-    $gender = $_POST['gender'];
-    $dob = $_POST['dob'];
-    $city = $_POST['city'];
-    $file = $_FILES['file']['name'];
-
-    $user = "INSERT INTO `user`(`name`, `email`, `password`, `language`, `gender`, `dob`, `city`, `file`) VALUES ('$name','$email','$password','$languages','$gender','$dob','$city','$file')";
-    $sql = mysqli_query($con, $user);
-    header('location: dashboard.php');
-}
+$title = "Admin Panel";
+$body = "Student";
+include('header.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap"> -->
-    <script src="https://kit.fontawesome.com/33b91abd2b.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title><?php echo $title; ?></title>
-</head>
-
-<body>
-    <div class="Side-bar">
-        <div class="Box-logo"><a href="index.php"> All Access</a></div>
-        <div class="Box-menu">
-            <ul class="ul-menu">
-                <li class="li-mneu Active-menu">
-                    <i class="fa fa-solid fa-arrow-right-from-bracket"></i>
-                    <div class="title-menu"><a href="index.php">Log In</a></div>
-                </li>
-                <li class="li-mneu">
-                    <i class="fa fa-solid fa-user-plus"></i>
-                    <div class="title-menu"><a href="signup.php">Sign UP</a></div>
-                </li>
-            </ul>
-        </div>
-    </div>
+<div class="create">
+    <button type="button" class="btn btn-primary" data-target="#first" data-toggle="first">Create</button>
+</div>
+<div class="crud">
     <div class="Page">
-        <div class="Box-header">
+        <div class="Box-header first" id="first">
             <section class="container-fluid">
                 <div class="row d-flex justify-content-center align-items-center none">
                     <div class="col-12">
@@ -246,6 +204,37 @@ if (isset($_POST['submit'])) {
             </section>
         </div>
     </div>
-</body>
-
-</html>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td>Thornton</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<?php
+include('footer.php');
+?>

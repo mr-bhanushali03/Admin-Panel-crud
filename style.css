@@ -67,6 +67,7 @@ a {
 }
 .box-travel {
   width: 100%;
+  animation-name: InfoUser;
 }
 .sub-stocks > img {
   width: 30px;
@@ -212,6 +213,26 @@ a {
   left: 13px;
   top: 7px;
 }
+
+.scroll {
+  max-height: 620px;
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 10px;
+  z-index: 1;
+}
+
+.form-anime {
+  animation-name: InfoUser;
+}
+
 .info-name {
   color: rgb(191, 191, 191);
   line-height: 40px;

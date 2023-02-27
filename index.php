@@ -1,5 +1,20 @@
 <?php
 $title = "All Access";
+require('connection.php');
+
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $passowrd = $_POST['password'];
+    $sql = "SELECT * FROM user WHERE email = '$email' && password ='$passowrd'";
+    $result = mysqli_query($con, $sql);
+    if (is_object($result) && ($result->num_rows > 0)) {
+        while ($row = $result->fetch_assoc()) {
+            if ($row["email"] === $_POST['email'] && $row["password"] === $_POST['password']) {
+                header('location: dashboard.php');
+            }
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,18 +52,18 @@ $title = "All Access";
             <div class="wrap">
                 <div class="box">
                     <div class="content">
-                        <form>
+                        <form method="post">
                             <div class="logo-wrap">
                                 <i class="fa-solid fa-key"></i>
                             </div>
                             <h1>Welcome Back!</h1>
                             <div class="input-box">
-                                <input type="text" required autocomplete="off">
+                                <input type="text" required autocomplete="off" name="email">
                                 <i class="fa-solid fa-user"></i>
                                 <span>Username</span>
                             </div>
                             <div class="input-box">
-                                <input type="password" required autocomplete="off">
+                                <input type="password" required autocomplete="off" name="password">
                                 <i class="fa-solid fa-lock"></i>
                                 <span>Password</span>
                             </div>
@@ -57,7 +72,7 @@ $title = "All Access";
                                 <a href="signup.php">Sign Up</a>
                             </div>
                             <div class="input-box">
-                                <input type="submit" value="Login">
+                                <input type="submit" value="Login" name="submit">
                             </div>
                         </form>
                     </div>
@@ -66,9 +81,10 @@ $title = "All Access";
         </div>
     </div>
     <style>
-        .fa-key{
+        .fa-key {
             font-size: 60px;
         }
+
         .wrap {
             display: flex;
             justify-content: center;
@@ -167,16 +183,6 @@ $title = "All Access";
             pointer-events: none;
             opacity: 0.5;
             transition: 300ms;
-        }
-
-        .content form .input-box input:focus~span,
-        .content form .input-box input:valid~span {
-            transform: translateY(-20px);
-            font-size: 0.9em;
-            background: #fff;
-            color: #212225;
-            opacity: 1;
-            padding: 2px 4px;
         }
 
         .content form .links {

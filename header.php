@@ -24,7 +24,7 @@
                 </li>
                 <li class="li-mneu">
                     <i class="fa fa-sharp fa-solid fa-graduation-cap"></i>
-                    <div class="title-menu">Student</div>
+                    <div class="title-menu"><a href="student.php">Student</a></div>
                 </li>
                 <li class="li-mneu">
                     <i class="fa fa-solid fa-person-chalkboard"></i>
@@ -82,4 +82,4 @@
         <div class="Box-elements">
             <div class="box-element-flex">
                 <div class="box-travel">
-                    <div class="title-element">Goals Budget</div>
+                    <div class="title-element"><?php echo $body; ?></div>

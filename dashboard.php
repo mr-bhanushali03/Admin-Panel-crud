@@ -1,8 +1,6 @@
 <?php
 $title = "Admin Panel";
-$dashboard = "Dashboard";
-$student = "Student";
-$teacher = "Teacher";
+$body = "Dashboard";
 include('header.php');
 ?>
                         <table class="table table-dark">
