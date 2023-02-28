@@ -19,19 +19,19 @@ if (isset($_POST['submit'])) {
 }
 
 // Update the student data
-if (isset($_GET['updateid'])) {
-    $id = $_GET['updateid'];
+if (isset($_POST['Update'])) {
+    $hidden_id = $_POST['hidden_id'];
 
     //select query to fetch singular data 
-    $select = "SELECT * FROM students WHERE id=".$id;
-    $result = mysqli_query($con,$select);
-    if (mysqli_num_rows($result) > 0) {
-        $upd    = mysqli_fetch_assoc($result);
-    }
+    // $select = "SELECT * FROM students WHERE id=".$id;
+    // $result = mysqli_query($con,$select);
+    // if (mysqli_num_rows($result) > 0) {
+    //     $upd    = mysqli_fetch_assoc($result);
+    // }
 }
 ?>
 <script>
-    alert("<?php echo $select; ?>");
+    alert("<?php echo $hidden_id; ?>");
 </script>
 <div class="create" style="float : right;">
     <button type="button" class="btn btn-primary" data-target="#create" data-toggle="modal">Create</button>
@@ -249,7 +249,7 @@ if (isset($_GET['updateid'])) {
                     <td>'.$row['city'].'</td>
                     <td>'.$row['file'].'</td>
                     <td>
-                        <button type="button" class="btn btn-light" data-target="#update" data-toggle="modal"><a href="#updateid='.$row['id'].'" class="text-dark">Update</a></button>
+                        <button type="button" class="btn btn-light" data-target="#update" data-toggle="modal"><input type="hidden" name="hidden_id" value="'.$row['id'].'"/>Update</button>
                         <button type="button" class="btn btn-danger" data-target="" data-toggle="">Delete</button>
                     </td>
                 </tr>';
@@ -285,7 +285,7 @@ if (isset($_GET['updateid'])) {
                                         </div>
                                         <div class="col-md-9 pe-5">
 
-                                            <input type="text" class="form-control form-control-lg" name="name" value="<?php echo $upd['name']; ?>"/>
+                                            <input type="text" class="form-control form-control-lg" name="name"/>
 
                                         </div>
                                     </div>
@@ -430,7 +430,7 @@ if (isset($_GET['updateid'])) {
                                 <hr class="mx-n3">
 
                                 <div class="px-5 py-4">
-                                    <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Submit">
+                                    <input type="submit" class="btn btn-primary btn-lg" name="Update" value="Submit">
                                 </div>
                             </form>
                         </div>
