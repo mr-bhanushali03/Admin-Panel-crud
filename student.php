@@ -21,6 +21,11 @@ if (isset($_POST['submit'])) {
 // Update the student data
 if (isset($_POST['Update'])) {
     $hidden_id = $_POST['hidden_id'];
+?>
+    <script>
+        alert("<?php echo $hidden_id; ?>");
+    </script>
+<?php
 
     //select query to fetch singular data 
     // $select = "SELECT * FROM students WHERE id=".$id;
@@ -30,9 +35,6 @@ if (isset($_POST['Update'])) {
     // }
 }
 ?>
-<script>
-    alert("<?php echo $hidden_id; ?>");
-</script>
 <div class="create" style="float : right;">
     <button type="button" class="btn btn-primary" data-target="#create" data-toggle="modal">Create</button>
 </div>
@@ -240,16 +242,16 @@ if (isset($_POST['Update'])) {
             $n = 1;
             while ($row = mysqli_fetch_array($result)) {
                 echo '<tr>
-                    <td>'.$n.'</td>
-                    <td>'.$row['name'].'</td>
-                    <td>'.$row['email'].'</td>
-                    <td>'.$row['language'].'</td>
-                    <td>'.$row['gender'].'</td>
-                    <td>'.$row['dob'].'</td>
-                    <td>'.$row['city'].'</td>
-                    <td>'.$row['file'].'</td>
+                    <td>' . $n . '</td>
+                    <td>' . $row['name'] . '</td>
+                    <td>' . $row['email'] . '</td>
+                    <td>' . $row['language'] . '</td>
+                    <td>' . $row['gender'] . '</td>
+                    <td>' . $row['dob'] . '</td>
+                    <td>' . $row['city'] . '</td>
+                    <td>' . $row['file'] . '</td>
                     <td>
-                        <button type="button" class="btn btn-light" data-target="#update" data-toggle="modal"><input type="hidden" name="hidden_id" value="'.$row['id'].'"/>Update</button>
+                        <button type="button" class="btn btn-light" data-target="#update" data-toggle="modal"><input type="hidden" name="hidden_id" value="' . $row['id'] . '"/>Update</button>
                         <button type="button" class="btn btn-danger" data-target="" data-toggle="">Delete</button>
                     </td>
                 </tr>';
@@ -285,7 +287,7 @@ if (isset($_POST['Update'])) {
                                         </div>
                                         <div class="col-md-9 pe-5">
 
-                                            <input type="text" class="form-control form-control-lg" name="name"/>
+                                            <input type="text" class="form-control form-control-lg" name="name" />
 
                                         </div>
                                     </div>
