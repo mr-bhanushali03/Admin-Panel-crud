@@ -2,11 +2,25 @@
 $title = "Admin Panel";
 $body = "Student";
 include('header.php');
+require('connection.php');
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $languages = implode(',', $_POST['languages']);
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $city = $_POST['city'];
+    $file = $_FILES['file']['name'];
+
+    $user = "INSERT INTO `students`(`name`, `email`, `language`, `gender`, `dob`, `city`, `file`) VALUES ('$name','$email','$languages','$gender','$dob','$city','$file')";
+    $sql = mysqli_query($con, $user);
+}
 ?>
-<div class="create">
-    <button type="button" class="btn btn-primary" data-target="#myModal" data-toggle="modal">Create</button>
+<div class="create" style="float : right;">
+    <button type="button" class="btn btn-primary" data-target="#create" data-toggle="modal">Create</button>
 </div>
-<div class="Page modal" id="myModal" style="border-radius: 60px 60px 60px 60px;" data-dismiss="modal">
+<div class="Page modal" id="create" style="border-radius: 60px 60px 60px 60px;" data-dismiss="modal">
     <div class="Box-header">
         <section class="container-fluid">
             <div class="row d-flex justify-content-center align-items-center none">
@@ -48,21 +62,6 @@ include('header.php');
                                         <div class="col-md-9 pe-5">
 
                                             <input type="email" class="form-control form-control-lg" placeholder="example@example.com" name="email" />
-
-                                        </div>
-                                    </div>
-
-                                    <hr class="mx-n3">
-
-                                    <div class="row align-items-center pt-4 pb-3">
-                                        <div class="col-md-3 ps-5">
-
-                                            <h6 class="mb-0">Password</h6>
-
-                                        </div>
-                                        <div class="col-md-9 pe-5">
-
-                                            <input type="password" class="form-control form-control-lg" name="password" />
 
                                         </div>
                                     </div>
@@ -203,34 +202,45 @@ include('header.php');
         </section>
     </div>
 </div>
-<table class="table table-dark">
+<table class="table table-dark text-center">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Languages</th>
+            <th scope="col">Gender</th>
+            <th scope="col">DOB</th>
+            <th scope="col">City</th>
+            <th scope="col">Files</th>
+            <th scope="col">Operations</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry the Bird</td>
-            <td>Thornton</td>
-            <td>@twitter</td>
-        </tr>
+        <?php
+        $sql = "SELECT * FROM students";
+        $result = mysqli_query($con, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $n = 1;
+            while ($row = mysqli_fetch_array($result)) {
+                echo '<tr>
+                    <td>'.$n.'</td>
+                    <td>'.$row['name'].'</td>
+                    <td>'.$row['email'].'</td>
+                    <td>'.$row['language'].'</td>
+                    <td>'.$row['gender'].'</td>
+                    <td>'.$row['dob'].'</td>
+                    <td>'.$row['city'].'</td>
+                    <td>'.$row['file'].'</td>
+                    <td>
+                        <button type="button" class="btn btn-light" data-target="" data-toogle="">Update</button>
+                        <button type="button" class="btn btn-danger" data-target="" data-toogle="">Delete</button>
+                    </td>
+                </tr>';
+                $n++;
+            }
+        }
+        ?>
     </tbody>
 </table>
 <?php

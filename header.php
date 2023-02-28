@@ -48,7 +48,7 @@
                 </li> -->
                 <li class="li-mneu logout">
                     <i class="fa fa-solid fa-power-off"></i>
-                    <div class="title-menu">Logout</div>
+                    <div class="title-menu"><a href="index.php">Logout</a></div>
                 </li>
             </ul>
         </div>
@@ -82,4 +82,4 @@
         <div class="Box-elements">
             <div class="box-element-flex">
                 <div class="box-travel">
-                    <div class="title-element"><?php echo $body; ?></div>
+                    <div class="title-element"><h1><?php echo $body; ?></h1></div>
