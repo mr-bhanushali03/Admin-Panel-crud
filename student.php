@@ -17,23 +17,6 @@ if (isset($_POST['submit'])) {
     $user = "INSERT INTO `students`(`name`, `email`, `language`, `gender`, `dob`, `city`, `file`) VALUES ('$name','$email','$languages','$gender','$dob','$city','$file')";
     $sql = mysqli_query($con, $user);
 }
-
-// Update the student data
-if (isset($_POST['Update'])) {
-    $hidden_id = $_POST['hidden_id'];
-?>
-    <script>
-        alert("<?php echo $hidden_id; ?>");
-    </script>
-<?php
-
-    //select query to fetch singular data 
-    // $select = "SELECT * FROM students WHERE id=".$id;
-    // $result = mysqli_query($con,$select);
-    // if (mysqli_num_rows($result) > 0) {
-    //     $upd    = mysqli_fetch_assoc($result);
-    // }
-}
 ?>
 <div class="create" style="float : right;">
     <button type="button" class="btn btn-primary" data-target="#create" data-toggle="modal">Create</button>
@@ -251,7 +234,7 @@ if (isset($_POST['Update'])) {
                     <td>' . $row['city'] . '</td>
                     <td>' . $row['file'] . '</td>
                     <td>
-                        <button type="button" class="btn btn-light" data-target="#update" data-toggle="modal"><input type="hidden" name="hidden_id" value="' . $row['id'] . '"/>Update</button>
+                        <a type="button" class="btn btn-light update"  href="?hidden_id='.$row['id'].'">Update</a>
                         <button type="button" class="btn btn-danger" data-target="" data-toggle="">Delete</button>
                     </td>
                 </tr>';
@@ -261,6 +244,11 @@ if (isset($_POST['Update'])) {
         ?>
     </tbody>
 </table>
+<style>
+    .display-block{
+        display: block !important;
+    }
+</style>
 <div class="Page modal" id="update" style="border-radius: 60px 60px 60px 60px;" data-dismiss="modal">
     <div class="Box-header">
         <section class="container-fluid">
@@ -443,6 +431,28 @@ if (isset($_POST['Update'])) {
         </section>
     </div>
 </div>
+
+<?php
+// Update the student data
+if (isset($_GET['hidden_id'])) {
+    $hidden_id = $_GET['hidden_id'];
+?>
+    <script>
+        document.getElementById("update").classList.add("display-block");
+        document.getElementById("update").addEventListener('click',function(){
+        document.getElementById("update").classList.remove("display-block");
+        });
+    </script>
+<?php
+
+    //select query to fetch singular data 
+    // $select = "SELECT * FROM students WHERE id=".$id;
+    // $result = mysqli_query($con,$select);
+    // if (mysqli_num_rows($result) > 0) {
+    //     $upd    = mysqli_fetch_assoc($result);
+    // }
+}
+?>
 <?php
 include('footer.php');
 ?>
