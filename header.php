@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="Page">
-        <div class="Box-header">
+        <div class="Box-header" id="block">
             <div class="Box-search">
                 <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                     <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-custom-link" />

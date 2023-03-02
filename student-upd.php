@@ -1,27 +1,21 @@
 <?php
 $title = "Admin Panel";
-$body = "Student";
+$body = "";
 include('header.php');
 require('connection.php');
 
-// insert the student data
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $languages = implode(',', $_POST['languages']);
-    $gender = $_POST['gender'];
-    $dob = $_POST['dob'];
-    $city = $_POST['city'];
-    $file = $_FILES['file']['name'];
+if (isset($_GET['hidden_id'])) {
+    $student_id = $_GET['hidden_id'];
 
-    $user = "INSERT INTO `students`(`name`, `email`, `language`, `gender`, `dob`, `city`, `file`) VALUES ('$name','$email','$languages','$gender','$dob','$city','$file')";
-    $sql = mysqli_query($con, $user);
+    $select = "SELECT * FROM students WHERE id=$student_id";
+    $result = mysqli_query($con, $select);
+    $row    = mysqli_fetch_assoc($result);
+    $languages = explode(",", $row['language']);
 }
 ?>
-<div class="create" style="float : right;">
-    <button type="button" class="btn btn-primary" data-target="#create" data-toggle="modal">Create</button>
-</div>
-<div class="Page modal" id="create" style="border-radius: 60px 60px 60px 60px;" data-dismiss="modal">
+
+//update form from student
+<div class="Page" style="margin: -100px 240px !important;">
     <div class="Box-header">
         <section class="container-fluid">
             <div class="row d-flex justify-content-center align-items-center none">
@@ -47,7 +41,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-9 pe-5">
 
-                                            <input type="text" class="form-control form-control-lg" name="name" />
+                                            <input type="text" class="form-control form-control-lg" name="name" value="<?php echo $row['name']; ?>"/>
 
                                         </div>
                                     </div>
@@ -62,7 +56,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-9 pe-5">
 
-                                            <input type="email" class="form-control form-control-lg" placeholder="example@example.com" name="email" />
+                                            <input type="email" class="form-control form-control-lg" placeholder="example@example.com" name="email" value="<?php echo $row['email']; ?>"/>
 
                                         </div>
                                     </div>
@@ -82,7 +76,9 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <div class="col-md-9 pe-5">
 
-                                                    <input type="checkbox" class="form-check-input" name="languages[]" value="English" />
+                                                    <input type="checkbox" class="form-check-input" name="languages[]" value="English" <?php if (in_array('English',$languages)) {
+                                                        echo "checked";
+                                                    } ?>/>
                                                 </div>
                                             </div>
 
@@ -94,7 +90,9 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <div class="col-md-9 pe-5">
 
-                                                    <input type="checkbox" class="form-check-input" name="languages[]" value="Hindi" />
+                                                    <input type="checkbox" class="form-check-input" name="languages[]" value="Hindi" <?php if (in_array('Hindi',$languages)) {
+                                                        echo "checked";
+                                                    } ?>/>
                                                 </div>
                                             </div>
 
@@ -106,7 +104,9 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <div class="col-md-9 pe-5">
 
-                                                    <input type="checkbox" class="form-check-input" name="languages[]" value="Gujarati" />
+                                                    <input type="checkbox" class="form-check-input" name="languages[]" value="Gujarati" <?php if (in_array('Gujarati',$languages)) {
+                                                        echo "checked";
+                                                    } ?>/>
                                                 </div>
                                             </div>
 
@@ -116,19 +116,25 @@ if (isset($_POST['submit'])) {
                                                 <h4>Gender</h4>
                                             </label>
                                             <div class="form-check">
-                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Male" value="Male">
+                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Male" value="Male" <?php if ($row['gender'] == "Male") {
+                                                    echo "checked";
+                                                } ?>>
                                                 <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault1">
                                                     Male
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Female" value="Female">
+                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Female" value="Female" <?php if ($row['gender'] == "Female") {
+                                                    echo "checked";
+                                                } ?>>
                                                 <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault2">
                                                     Female
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Other" value="Other">
+                                                <input class="form-check-input col-md-3 ms-3" type="radio" name="gender" id="Other" value="Other" <?php if ($row['gender'] == "Other") {
+                                                    echo "checked";
+                                                } ?>>
                                                 <label class="form-check-label col-md-9 ms-3" for="flexRadioDefault3">
                                                     Other
                                                 </label>
@@ -146,7 +152,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-9 pe-5">
 
-                                            <input type="date" name="dob" id="dob" placeholder="Date Of Birth" class="form-control">
+                                            <input type="date" name="dob" id="dob" placeholder="Date Of Birth" class="form-control" value="<?php echo $row['dob']; ?>">
 
                                         </div>
                                     </div>
@@ -162,10 +168,18 @@ if (isset($_POST['submit'])) {
                                         <div class="col-md-9 pe-5">
 
                                             <select class="form-select" aria-label="Default select example" name="city">
-                                                <option selected>Select Your City</option>
-                                                <option value="Daman">Daman</option>
-                                                <option value="Vapi">Vapi</option>
-                                                <option value="Bhilad">Bhilad</option>
+                                                <option value="" <?php if ($row['city'] == null) {
+                                                    echo "selected";
+                                                } ?>>Select Your City</option>
+                                                <option value="Daman" <?php if ($row['city'] == "Daman") {
+                                                    echo "selected";
+                                                } ?>>Daman</option>
+                                                <option value="Vapi" <?php if ($row['city'] == "Vapi") {
+                                                    echo "selected";
+                                                } ?>>Vapi</option>
+                                                <option value="Bhilad" <?php if ($row['city'] == "Bhilad") {
+                                                    echo "selected"; 
+                                                } ?>>Bhilad</option>
                                             </select>
 
                                         </div>
@@ -181,7 +195,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-9 pe-5">
 
-                                            <input class="form-control form-control-lg" id="file" type="file" name="file" />
+                                            <input class="form-control form-control-lg" id="file" type="file" name="file" value="<?php echo $row['file']; ?>"/>
                                             <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
                                                 size 50 MB</div>
 
@@ -203,47 +217,20 @@ if (isset($_POST['submit'])) {
         </section>
     </div>
 </div>
-<table class="table table-dark text-center">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Languages</th>
-            <th scope="col">Gender</th>
-            <th scope="col">DOB</th>
-            <th scope="col">City</th>
-            <th scope="col">Files</th>
-            <th scope="col">Operations</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        $sql = "SELECT * FROM students";
-        $result = mysqli_query($con, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $n = 1;
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<tr>
-                    <td>' . $n . '</td>
-                    <td>' . $row['name'] . '</td>
-                    <td>' . $row['email'] . '</td>
-                    <td>' . $row['language'] . '</td>
-                    <td>' . $row['gender'] . '</td>
-                    <td>' . $row['dob'] . '</td>
-                    <td>' . $row['city'] . '</td>
-                    <td>' . $row['file'] . '</td>
-                    <td>
-                        <button type="button" class="btn btn-light"><a href="student-upd.php?hidden_id='.$row['id'].'" class="text-dark">Update</a></button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>';
-                $n++;
-            }
-        }
-        ?>
-    </tbody>
-</table>
+
+//extra add for only onload page
+<style>
+    .display-block {
+        display: none !important;
+    }
+
+    .Box-header {
+        width: 105% !important;
+    }
+</style>
+<script>
+    document.getElementById("block").classList.add("display-block");
+</script>
 <?php
 include('footer.php');
 ?>
