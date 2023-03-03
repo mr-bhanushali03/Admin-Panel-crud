@@ -203,8 +203,9 @@ if (isset($_POST['submit'])) {
         </section>
     </div>
 </div>
+<div class="scroll" style="width: 100%;">
 <table class="table table-dark text-center">
-    <thead>
+    <thead class="sticky-top">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
@@ -224,9 +225,9 @@ if (isset($_POST['submit'])) {
         if (mysqli_num_rows($result) > 0) {
             $n = 1;
             while ($row = mysqli_fetch_array($result)) {
-                echo '<tr>
-                    <td>' . $n . '</td>
-                    <td>' . $row['name'] . '</td>
+                echo '<tr> 
+                    <td scope="col">' . $n . '</td>
+                    <td scope="col">' . $row['name'] . '</td>
                     <td>' . $row['email'] . '</td>
                     <td>' . $row['language'] . '</td>
                     <td>' . $row['gender'] . '</td>
@@ -234,7 +235,7 @@ if (isset($_POST['submit'])) {
                     <td>' . $row['city'] . '</td>
                     <td>' . $row['file'] . '</td>
                     <td>
-                        <button type="button" class="btn btn-light"><a href="student-upd.php?hidden_id='.$row['id'].'" class="text-dark">Update</a></button>
+                        <button type="button" class="btn btn-light"><a href="student-upd.php?hidden_id=' . $row['id'] . '" class="text-dark">Update</a></button>
                         <button type="button" class="btn btn-danger">Delete</button>
                     </td>
                 </tr>';
@@ -244,6 +245,7 @@ if (isset($_POST['submit'])) {
         ?>
     </tbody>
 </table>
+    </div>
 <?php
 include('footer.php');
 ?>
