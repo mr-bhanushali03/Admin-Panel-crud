@@ -71,7 +71,7 @@
             </div>
             <div class="box-alert-infomation">
                 <div class="box-alert">
-                    // Something is Missing....
+                     <!-- Something is Missing.... -->
                 </div>
                 <div class="box-infomation">
                     <img class="info-avatar" src="https://www.shutterstock.com/image-vector/user-icon-vector-260nw-393536320.jpg">

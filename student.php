@@ -236,7 +236,7 @@ if (isset($_POST['submit'])) {
                     <td>' . $row['file'] . '</td>
                     <td>
                         <button type="button" class="btn btn-light"><a href="student-upd.php?hidden_id=' . $row['id'] . '" class="text-dark">Update</a></button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-danger"><a href="delete.php?hidden_id=' . $row['id'] . '">Delete</a></button>
                     </td>
                 </tr>';
                 $n++;
