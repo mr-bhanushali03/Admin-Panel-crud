@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $city = $_POST['city'];
     $file = $_FILES['file']['name'];
 
-    $user = "INSERT INTO `students`(`name`, `email`, `language`, `gender`, `dob`, `city`, `file`) VALUES ('$name','$email','$languages','$gender','$dob','$city','$file')";
+    $user = "INSERT INTO `teachers`(`name`, `email`, `language`, `gender`, `dob`, `city`, `file`) VALUES ('$name','$email','$languages','$gender','$dob','$city','$file')";
     $sql = mysqli_query($con, $user);
 }
 ?>
@@ -220,7 +220,7 @@ if (isset($_POST['submit'])) {
     </thead>
     <tbody>
         <?php
-        $sql = "SELECT * FROM students";
+        $sql = "SELECT * FROM teachers";
         $result = mysqli_query($con, $sql);
         if (mysqli_num_rows($result) > 0) {
             $n = 1;
@@ -233,7 +233,7 @@ if (isset($_POST['submit'])) {
                     <td>' . $row['gender'] . '</td>
                     <td>' . $row['dob'] . '</td>
                     <td>' . $row['city'] . '</td>
-                    <td>' . $row['file'] . '</td>
+                    <td>' . $row['image'] . '</td>
                     <td>
                         <button type="button" class="btn btn-light"><a href="student-upd.php?hidden_id=' . $row['id'] . '" class="text-dark">Update</a></button>
                         <button type="button" class="btn btn-danger"><a href="delete.php?hidden_id=' . $row['id'] . '">Delete</a></button>

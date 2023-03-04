@@ -28,7 +28,7 @@
                 </li>
                 <li class="li-mneu">
                     <i class="fa fa-solid fa-person-chalkboard"></i>
-                    <div class="title-menu">Teacher</div>
+                    <div class="title-menu"><a href="teacher.php">Teacher</a></div>
                 </li>
                 <!-- <li class="li-mneu">
                     <i class="fa fa-solid fa-school"></i>
