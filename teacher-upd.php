@@ -6,16 +6,16 @@ require('connection.php');
 
 // select query for update form Student table
 if (isset($_GET['hidden_id'])) {
-    $student_id = $_GET['hidden_id'];
+    $teacher_id = $_GET['hidden_id'];
 
-    $select = "SELECT * FROM students WHERE id=$student_id";
+    $select = "SELECT * FROM teachers WHERE id=$teacher_id";
     $result = mysqli_query($con, $select);
     $row    = mysqli_fetch_assoc($result);
     $languages = explode(",", $row['language']);
 }
 
-// Update query for update the student table
-if (isset($_POST['submit'])) {
+// Update query to update the Teacher Table
+if (isset($_POST['Submit'])) {
     $teacher_id = $_POST['hidden_id'];
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -24,19 +24,19 @@ if (isset($_POST['submit'])) {
     $dob = $_POST['dob'];
     $city = $_POST['city'];
     $file = $_FILES['file']['name'];
-    $upd = "UPDATE `students` SET `name`='$name',`email`='$email',`file`='$file',`language`='$languages',`gender`='$gender',`dob`='$dob',`city`='$city' WHERE id=$teacher_id";
+    $upd = "UPDATE `teachers` SET `name`='$name',`email`='$email',`image`='$file',`language`='$languages',`gender`='$gender',`dob`='$dob',`city`='$city' WHERE id=$teacher_id";
     $sql = mysqli_query($con, $upd);
     if ($sql) {
         ?>
         <script>
-            window.location.href = "student.php";
+            window.location.href = "teacher.php";
         </script>
         <?php
     }
 }
 ?>
 
-//update form from student
+<!-- update form from student -->
 <div class="Page" style="margin: -100px 240px !important;">
     <div class="Box-header">
         <section class="container-fluid">
@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 
                     <div class="card form-anime" style="border-radius: 15px;">
                         <div class="card-body" style="height: 760px !important;">
-                            <form action="student-upd.php" method="post" enctype="multipart/form-data">
+                            <form action="" method="post" enctype="multipart/form-data">
                                 <div class="scroll">
 
                                     <div class="sticky">
@@ -67,7 +67,9 @@ if (isset($_POST['submit'])) {
 
                                         </div>
                                     </div>
-<input type="hidden" name="hidden_id" value="<?php echo $_GET['hidden_id']; ?>">
+                                    
+                                    <input type="hidden" name="hidden_id" value="<?php echo $_GET['hidden_id']; ?>">
+
                                     <hr class="mx-n3">
 
                                     <div class="row align-items-center py-3">
@@ -228,7 +230,7 @@ if (isset($_POST['submit'])) {
                                 <hr class="mx-n3">
 
                                 <div class="px-5 py-4">
-                                    <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Submit">
+                                    <input type="submit" class="btn btn-primary btn-lg" name="Submit" value="Submit">
                                 </div>
                             </form>
                         </div>
@@ -239,7 +241,7 @@ if (isset($_POST['submit'])) {
     </div>
 </div>
 
-//extra add for only onload page
+<!-- extra add for only onload page -->
 <style>
     .display-block {
         display: none !important;

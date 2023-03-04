@@ -1,6 +1,6 @@
 <?php
 $title = "Admin Panel";
-$body = "Student";
+$body = "Teachers";
 include('header.php');
 require('connection.php');
 
@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $city = $_POST['city'];
     $file = $_FILES['file']['name'];
 
-    $user = "INSERT INTO `teachers`(`name`, `email`, `language`, `gender`, `dob`, `city`, `file`) VALUES ('$name','$email','$languages','$gender','$dob','$city','$file')";
+    $user = "INSERT INTO `teachers`(`name`, `email`, `language`, `gender`, `dob`, `city`, `image`) VALUES ('$name','$email','$languages','$gender','$dob','$city','$file')";
     $sql = mysqli_query($con, $user);
 }
 ?>
@@ -235,8 +235,8 @@ if (isset($_POST['submit'])) {
                     <td>' . $row['city'] . '</td>
                     <td>' . $row['image'] . '</td>
                     <td>
-                        <button type="button" class="btn btn-light"><a href="student-upd.php?hidden_id=' . $row['id'] . '" class="text-dark">Update</a></button>
-                        <button type="button" class="btn btn-danger"><a href="delete.php?hidden_id=' . $row['id'] . '">Delete</a></button>
+                        <button type="button" class="btn btn-light"><a href="teacher-upd.php?hidden_id=' . $row['id'] . '" class="text-dark">Update</a></button>
+                        <button type="button" class="btn btn-danger"><a href="teacher-delete.php?hidden_id=' . $row['id'] . '">Delete</a></button>
                     </td>
                 </tr>';
                 $n++;
