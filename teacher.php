@@ -204,28 +204,28 @@ if (isset($_POST['submit'])) {
     </div>
 </div>
 <div class="scroll" style="width: 100%;">
-<table class="table table-dark text-center">
-    <thead class="sticky-top">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Languages</th>
-            <th scope="col">Gender</th>
-            <th scope="col">DOB</th>
-            <th scope="col">City</th>
-            <th scope="col">Files</th>
-            <th scope="col">Operations</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        $sql = "SELECT * FROM teachers";
-        $result = mysqli_query($con, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $n = 1;
-            while ($row = mysqli_fetch_array($result)) {
-                echo '<tr> 
+    <table class="table table-dark text-center">
+        <thead class="sticky-top">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Languages</th>
+                <th scope="col">Gender</th>
+                <th scope="col">DOB</th>
+                <th scope="col">City</th>
+                <th scope="col">Files</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $sql = "SELECT * FROM teachers";
+            $result = mysqli_query($con, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                $n = 1;
+                while ($row = mysqli_fetch_array($result)) {
+                    echo '<tr> 
                     <td>' . $n . '</td>
                     <td>' . $row['name'] . '</td>
                     <td>' . $row['email'] . '</td>
@@ -239,13 +239,13 @@ if (isset($_POST['submit'])) {
                         <button type="button" class="btn btn-danger"><a href="teacher-delete.php?hidden_id=' . $row['id'] . '">Delete</a></button>
                     </td>
                 </tr>';
-                $n++;
+                    $n++;
+                }
             }
-        }
-        ?>
-    </tbody>
-</table>
-    </div>
+            ?>
+        </tbody>
+    </table>
+</div>
 <?php
 include('footer.php');
 ?>

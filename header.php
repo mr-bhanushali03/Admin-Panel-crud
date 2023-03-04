@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="Page">
-        <div class="Box-header" id="block">
+        <!-- <div class="Box-header" id="block">
             <div class="Box-search">
                 <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                     <link xmlns="" type="text/css" rel="stylesheet" id="dark-mode-custom-link" />
@@ -71,14 +71,14 @@
             </div>
             <div class="box-alert-infomation">
                 <div class="box-alert">
-                     <!-- Something is Missing.... -->
+                     
                 </div>
                 <div class="box-infomation">
                     <img class="info-avatar" src="https://www.shutterstock.com/image-vector/user-icon-vector-260nw-393536320.jpg">
                     <div class="info-name">Admin</div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="Box-elements">
             <div class="box-element-flex">
                 <div class="box-travel">
