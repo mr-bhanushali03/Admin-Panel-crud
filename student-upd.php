@@ -23,9 +23,14 @@ if (isset($_POST['submit'])) {
     $gender = $_POST['gender'];
     $dob = $_POST['dob'];
     $city = $_POST['city'];
-    $file = $_FILES['file']['name'];
-    $upd = "UPDATE `students` SET `name`='$name',`email`='$email',`file`='$file',`language`='$languages',`gender`='$gender',`dob`='$dob',`city`='$city' WHERE id=$teacher_id";
-    $sql = mysqli_query($con, $upd);
+    if ($_FILES['file']['name'] == "") {
+        $upd = "UPDATE `students` SET `name`='$name',`email`='$email',`language`='$languages',`gender`='$gender',`dob`='$dob',`city`='$city' WHERE id=$teacher_id";
+        $sql = mysqli_query($con, $upd);
+    }else {
+        $file = $_FILES['file']['name'];
+        $upd = "UPDATE `students` SET `name`='$name',`email`='$email',`file`='$file',`language`='$languages',`gender`='$gender',`dob`='$dob',`city`='$city' WHERE id=$teacher_id";
+        $sql = mysqli_query($con, $upd);
+    }
     if ($sql) {
         ?>
         <script>
